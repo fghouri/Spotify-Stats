@@ -1,2 +1,2 @@
 # Spotify Stats
- Display Top 5 Artists and Songs
+ Make HTTP requests using fetch API to get user's top five artists and music listened to
