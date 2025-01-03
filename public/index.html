@@ -1,0 +1,106 @@
+<!-- Base Code -->
+
+<!doctype html>
+<html>
+  <head>
+    <title>Top Stats</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="login">
+        <h1>Show Top Statistics</h1>
+        <a href="/login" class="btn btn-primary">Log in with Spotify</a>
+      </div>
+      <div id="loggedin">
+        <div id="user-profile">
+        </div>
+        <div id="oauth">
+        </div>
+        <button class="btn btn-default" id="obtain-new-token">Renew Token</button> <!-- New Token -->
+      </div>
+    </div>
+
+    <!-- Stats Button -->
+    <div id = "user-stats-btn">
+      <button id="obtain-stats" class="btn btn-default">Show Stats</button>
+    </div>
+
+    <!-- Stats -->
+    <div id = "stats">
+      <hr/>
+      <h1>User Stats</h1>
+      <hr/>
+  </div>
+      
+
+      <!-- Table -->
+      <table id = "stats-table">
+        <tr> 
+          <th>#</th>
+          <th>Top Artist</th>
+          <th>Top Song</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td id="artist1">.</td>
+          <td id="track1">.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td id="artist2">.</td>
+          <td id="track2">.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td id="artist3">.</td>
+          <td id="track3">.</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td id="artist4">.</td>
+          <td id="track4">.</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td id="artist5">.</td>
+          <td id="track5">.</td>
+        </tr>
+      </table>
+
+
+    <script id="user-profile-template" type="text/x-handlebars-template">
+      <h1>Logged in as {{display_name}}</h1>
+      <div class="media">
+        <div class="pull-left">
+          <img class="media-object" width="150" src="{{images.0.url}}" />
+        </div>
+        <div class="media-body">
+          <dl class="dl-horizontal">
+            <dt>Display Name</dt><dd class="clearfix">{{display_name}}</dd>
+            <dt>ID</dt><dd>{{id}}</dd>
+            <dt>Email</dt><dd>{{email}}</dd>
+            <dt>Spotify URL</dt><dd><a href="{{external_urls.spotify}}">{{external_urls.spotify}}</a></dd>
+            <dt>Link</dt><dd><a href="{{href}}">{{href}}</a></dd>
+            <dt>Profile Image</dt><dd class="clearfix"><a href="{{images.0.url}}">{{images.0.url}}</a></dd>
+            <dt>Country</dt><dd>{{country}}</dd>
+          </dl>
+        </div>
+      </div>
+    </script>
+
+    <script id="oauth-template" type="text/x-handlebars-template">
+      <h2>oAuth info</h2>
+      <dl class="dl-horizontal">
+        <dt>Access token</dt><dd class="text-overflow">{{access_token}}</dd>
+        <dt>Refresh token</dt><dd class="text-overflow">{{refresh_token}}</dd>
+      </dl>
+    </script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  </body>
+</html>

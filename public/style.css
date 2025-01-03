@@ -1,0 +1,73 @@
+/* ** Style ** */
+
+#login, #loggedin, #user-stats-btn, #stats, #stats-table {
+  display: none;
+}
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 500px;
+}
+
+body {
+    text-align: center;
+    font-family: 'Roboto', sans-serif; /* Use Google Font */
+    background-color: #f4f4f4; /* Light background color */
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333; /* darker color, better contrasts */
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #666;
+}
+
+hr {
+  display: block;
+  height: 3px;
+  border: 0;
+  border-top: 3px solid #C4C4C4;
+  margin: 1em 0;
+  padding: 0;
+}
+
+#stats { 
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #666;
+}
+/* table */
+#stats-table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#stats-table td, #stats-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  color: rgb(63, 47, 47);
+  font-weight: bold;
+}
+
+#stats-table tr:nth-child(even){background-color: #f2f2f2;}
+
+#stats-table tr:hover {background-color: #ddd;}
+
+#stats-table th { 
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #04AA6D;
+  color: white;
+}
+
