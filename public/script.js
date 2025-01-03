@@ -87,58 +87,52 @@ var access_token;
 
   // stats button
   document.getElementById("obtain-stats").addEventListener("click", function( ) {
-    const url_artists = `https://api.spotify.com/v1/me/top/artists?limit=5`;
-    const url_tracks = `https://api.spotify.com/v1/me/top/tracks?limit=5`;
     
     // show header
     $("#stats").show();
     $("#stats-table").show();
 
-    // top artists
-    fetch(url_artists, {
-      headers: {
-        'Authorization': `Bearer ${access_token}`
-      }
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP Error! Status: ${response.status}`);
-      }
-      return response.json(); // Parse the response as json
-    })
-    .then(data => { 
-      data.items.forEach((artist, index) => {
-        console.log("Artist Name: ", artist.name);
-        console.log("Genre: ", artist.genres.join(", "));
-        document.getElementById(`artist${index + 1}`).textContent = `${artist.name}`;
-      });
-      console.log(data);
-    })
-    .catch(error => {
-      console.log(`Error fetching Spotify Data: `, error);
-    })
+    getStats("artists");
+    getStats("tracks");
 
-    // top tracks
-    fetch(url_tracks, {
-      headers: {
-        'Authorization': `Bearer ${access_token}`
+  // make fetch requests for artists and tracks
+  async function getStats(type){
+
+    const url_artists = `https://api.spotify.com/v1/me/top/artists?limit=5`;
+    const url_tracks = `https://api.spotify.com/v1/me/top/tracks?limit=5`;
+
+    // artists
+    if (type == 'artists') {
+        try {
+        const response = await fetch(url_artists, {
+          headers: {
+            'Authorization': `Bearer ${access_token}`
+          }
+        })
+        const data = await response.json(); 
+        data.items.forEach((artist, index) => {
+          document.getElementById(`artist${index + 1}`).textContent = `${artist.name}`;
+          });
+      } catch (error) {
+        console.log(error);
       }
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP Error! Status: ${response.status}`);
+    }
+    // tracks
+   else if (type == 'tracks') {
+      try {
+        const response = await fetch(url_tracks, {
+          headers: {
+            'Authorization': `Bearer ${access_token}`
+          }
+        })
+        const data = await response.json(); 
+        data.items.forEach((track, index) => {
+          document.getElementById(`track${index + 1}`).textContent = `${track.name}`;
+        });
+      } catch (error) {
+        console.log(error);
       }
-      return response.json(); // Parse the response as json
-    })
-    .then(data => { 
-      data.items.forEach((track, index) => {
-        console.log("Artist Name: ", track.name);
-        document.getElementById(`track${index + 1}`).textContent = `${track.name}`;
-      });
-      console.log(data);
-    })
-    .catch(error => {
-      console.log(`Error fetching Spotify Data: `, error);
-    })
-  })
-})();
+    }
+  }
+})}());
+
