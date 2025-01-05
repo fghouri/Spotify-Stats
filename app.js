@@ -21,8 +21,8 @@ var access_token = 0;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-var client_id = '0d00b49b42ce47698c2710d7a930a915'; // your clientId
-var client_secret = '7cb78d84a49f40798452966add779147'; // Your secret
+var client_id = 'ENTER_CLIENT_ID'; // your clientId
+var client_secret = 'ENTER_CLIENT_SECRET'; // Your secret
 var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
 
 
